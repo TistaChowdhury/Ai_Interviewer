@@ -25,6 +25,7 @@ export async function setSessionCookie(idToken: string) {
 export async function signUp(params: SignUpParams) {
     const { uid, name, email } =params;
 
+    // @ts-expect-ignore
     try {
         const userRecord = await db.collection("users").doc(uid).get();
 
@@ -46,7 +47,7 @@ export async function signUp(params: SignUpParams) {
         }
 
 
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error creating a user', error);
 
         if(error.code === 'auth/email-already-exists'){
