@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     try{
         console.log("Gemini API Key exists:", !!process.env.GOOGLE_GENERATIVE_AI_API_KEY);
         const { text: questions } =await generateText({
-            model: google("gemini-1.5-flash"),
+            model: google("gemini-2.0-flash"),
             prompt: `Prepare questions for a job interview.
         The job role is ${role}.
         The job experience level is ${level}.
