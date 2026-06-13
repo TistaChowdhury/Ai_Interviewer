@@ -92,17 +92,9 @@ const Agent = ({ userName, userId, type, interviewId, questions, role, level, te
         setCallStatus(CallStatus.CONNECTING);
 
         if (type === 'generate') {
-            await vapi.start(process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!, {
-                variableValues: {
-                    username: userName,
-                    userid: userId,
-                    role: role || '',
-                    level: level || '',
-                    techstack: techstack?.join(', ') || '',
-                    amount: amount || 5,
-                    type: type,
-                }
-            });
+            await vapi.start(
+                process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!
+            );
         } else {
             let formattedQuestions = '';
             if (questions) {
