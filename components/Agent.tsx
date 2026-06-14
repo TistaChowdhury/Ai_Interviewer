@@ -102,6 +102,10 @@ const Agent = ({ userName, userId, type, interviewId, questions, role, level, te
                     .map((question) => `-${question}`)
                     .join('\n');
             }
+            console.log(
+                "Assistant ID:",
+                process.env.NEXT_PUBLIC_VAPI_INTERVIEW_ASSISTANT_ID
+            );
             await vapi.start( process.env.NEXT_PUBLIC_VAPI_INTERVIEW_ASSISTANT_ID!, {
                 variableValues: {
                     questions: formattedQuestions,
