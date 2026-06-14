@@ -5,7 +5,7 @@ export async function getInterviewsByUserId(userId: string): Promise<Interview[]
     const interviews = await db
         .collection('interviews')
         .where('userId', '==', userId)
-        .orderBy('created_at', 'desc')
+        .orderBy('createdAt', 'desc')
         .get();
 
     return interviews.docs.map((doc) => ({
@@ -20,7 +20,7 @@ export async function getLatestInterviews(params: GetLatestInterviewsParams): Pr
 
     const interviews = await db
         .collection('interviews')
-        .orderBy('created_at', 'desc')
+        .orderBy('createdAt', 'desc')
         .where('finalized', '==', true)
         .where('userId', '!=', userId)
         .limit(limit)

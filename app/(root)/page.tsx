@@ -8,6 +8,7 @@ import {getInterviewsByUserId, getLatestInterviews} from "@/lib/actions/general.
 
 const Page = async () => {
     const user = await getCurrentUser();
+    console.log("CURRENT USER ID:", user?.id);
 
     const [userInterviews, latestInterviews ]= await Promise.all([
         await getInterviewsByUserId(user?.id!),

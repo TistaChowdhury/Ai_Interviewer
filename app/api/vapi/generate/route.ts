@@ -12,7 +12,14 @@ export async function GET() {
 
 export async function POST(request: Request) {
     const { type, role, level, techstack, amount, userid} = await request.json();
-
+    console.log({
+        role,
+        type,
+        level,
+        amount,
+        userid,
+        techstack
+    });
     try{
         console.log("groq API Key exists:", !!process.env.GROQ_API_KEY);
         const { text: questions } =await generateText({
