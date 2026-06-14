@@ -102,9 +102,9 @@ const Agent = ({ userName, userId, type, interviewId, questions, role, level, te
                     .map((question) => `-${question}`)
                     .join('\n');
             }
-            await vapi.start(interviewer, {
+            await vapi.start( process.env.NEXT_PUBLIC_VAPI_INTERVIEW_ASSISTANT_ID!,, {
                 variableValues: {
-                    question: formattedQuestions,
+                    questions: formattedQuestions,
                 }
             });
         }
