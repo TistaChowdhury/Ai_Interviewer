@@ -19,7 +19,7 @@ const Page = async ({params}: RouteParams) => {
             <div className={"flex flex-row gap-4 justify-between"}>
                 <div className={"flex flx-row gap-4 items-center max-sm:flex-col"}>
                     <div className={"flex flex-row gap-4 items-center"}>
-                        <Image src={getRandomInterviewCover()} alt={"cover-image"} width={40} height={40} className={"rounded-full object-cover size-[40px"} />
+                        <Image src={getRandomInterviewCover()} alt={"cover-image"} width={40} height={40} className={"rounded-full object-cover size-[40px]"} />
                         <h3 className={"capitalize"}>{interview.role}</h3>
                     </div>
 
@@ -29,8 +29,8 @@ const Page = async ({params}: RouteParams) => {
                 <p className={"bg-dark-200 px-4 py-2 rounded-lg h-fit capitalize"}>{interview.type}</p>
             </div>
 
-            <Agent userName={user?.name!}
-                   userId={user?.id!}
+            <Agent userName={user?.name || ''}
+                   userId={user?.id || ''}
                    interviewId={id}
                    type="interview"
                    questions={interview.questions}
