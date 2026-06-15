@@ -112,7 +112,12 @@ const Agent = ({ userName, userId, type, interviewId, questions, role, level, te
 
         if (type === 'generate') {
             await vapi.start(
-                process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!
+                process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!,
+            {
+                variableValues: {
+                userid: userId,
+            }
+            }
             );
         } else {
             let formattedQuestions = '';
